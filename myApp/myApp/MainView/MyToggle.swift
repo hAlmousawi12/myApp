@@ -22,8 +22,6 @@ struct MyToggle: View {
             Capsule()
                 .frame(width: capsuleSize, height: capsuleSize / 2)
                 .foregroundColor(buttonColor)
-                .shadow(color: Color.black.opacity(0.4), radius: 5, x: 0, y: 5)
-                .shadow(color: Color.white.opacity(0.9), radius: 5, x: 0, y: 5)
             ZStack{
                 Capsule()
                 .frame(width: buttonSize, height: (capsuleSize / 2) * 0.85)
@@ -31,11 +29,9 @@ struct MyToggle: View {
                 .offset(x: buttonOffset)
                 Capsule()
                     .stroke(offWhite, lineWidth: 3)
-                    .shadow(color: Color.black.opacity(0.3), radius: 4, x: 0, y: 4)
                     .clipShape(
                         Capsule()
                     )
-                    .shadow(color: Color.white.opacity(0.8), radius: 4, x: 0, y: 4)
                     .clipShape(
                         Capsule()
                     )

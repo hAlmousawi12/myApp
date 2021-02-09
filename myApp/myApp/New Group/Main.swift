@@ -6,44 +6,20 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct Main: View {
     @State var isShowed = true
     @State var isLive = false
-     
-    @State var toggleSize: CGFloat = 0
-    @State var toggleOffset: CGFloat = 0
-    @State var toggleColor: Color = .gray
-    @State var toggled: Bool = false
+    
     var body: some View {
         ZStack {
-            if self.isShowed { GeometryReader{_ in AnimationScreen() }}
+            if self.isShowed { AnimationScreen() }
             if !self.isShowed {
-                Form {
-                    Text("game1")
-                    Text("game2")
-                    Text("game3")
-                    Text("game4")
+                MyForm()
                     
-                }
-            }
-            if !self.isShowed {
-                GeometryReader { geommetry in
-                    VStack {
-                        HStack {
-                            Spacer()
-                            Text(toggled ? "Live" : "Not Live")
-                                .foregroundColor(Color("Text"))
-                            MyToggle(buttonSize: $toggleSize, buttonOffset: $toggleOffset, buttonColor: $toggleColor, toggled: $toggled)
-                        }.padding(.trailing)
-                        Spacer()
-                        TB(color1: Color("Shadow2"), color2: Color.secondary, color3: Color.secondary, color4: Color.secondary, color5: Color.secondary)
-                            .frame(width: geommetry.size.width - 20, height: 90)
-                            .cornerRadius(32)
-                            .padding(.horizontal, 10)
-                            .shadow(color: Color("Color").opacity(0.15), radius: 5, x: 0, y: 5)
-                    }
-                }
+                
+                TBandTGL()
             }
         }.onAppear { loadData() }
     }
@@ -51,7 +27,7 @@ struct Main: View {
         
         var arrayGame : [Game] = []
         
-        guard let url = URL(string:"https://apiv2.apifootball.com/?action=get_events&from=2020-01-01&to=2021-02-09&league_id=468&APIkey=9f8607a303e682d786af195655dbd534a38ebcad84ffb25f867718d4331c2a27")
+        guard let url = URL(string:"https://apiv2.apifootball.com/?action=get_events&from=2020-01-01&to=2021-02-09&league_id=468&APIkey=6889a1b1a4a965232ebfc8495e336096345bc538625f78e34e6c321467ad1d40")
         
         else { return }
         
@@ -75,8 +51,10 @@ struct Main: View {
     }
 }
 
+
 struct Main_Previews: PreviewProvider {
     static var previews: some View {
         Main()
+            .preferredColorScheme(.dark)
     }
 }

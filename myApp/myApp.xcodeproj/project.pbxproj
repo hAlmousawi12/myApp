@@ -23,6 +23,8 @@
 		97BBC8C225D12CC8002CDE6F /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BBC8C125D12CC8002CDE6F /* Main.swift */; };
 		97BBC8C625D12DAC002CDE6F /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BBC8C525D12DAC002CDE6F /* Game.swift */; };
 		97BBC8CB25D13070002CDE6F /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 97BBC8CA25D13070002CDE6F /* SDWebImageSwiftUI */; };
+		97D1E13E25D2841800944DEA /* MyForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D1E13D25D2841700944DEA /* MyForm.swift */; };
+		97D1E14125D286AC00944DEA /* TBandTGL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D1E14025D286AC00944DEA /* TBandTGL.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +45,8 @@
 		97BBC8BE25D12C0D002CDE6F /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
 		97BBC8C125D12CC8002CDE6F /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Main.swift; path = "../New Group/Main.swift"; sourceTree = "<group>"; };
 		97BBC8C525D12DAC002CDE6F /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		97D1E13D25D2841700944DEA /* MyForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyForm.swift; sourceTree = "<group>"; };
+		97D1E14025D286AC00944DEA /* TBandTGL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TBandTGL.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,8 +65,9 @@
 			isa = PBXGroup;
 			children = (
 				97BBC8C125D12CC8002CDE6F /* Main.swift */,
-				9797C73D25D175F900B80C1F /* Animation.swift */,
 				9797C77425D182FE00B80C1F /* MyToggle.swift */,
+				97D1E13D25D2841700944DEA /* MyForm.swift */,
+				97D1E14025D286AC00944DEA /* TBandTGL.swift */,
 			);
 			path = MainView;
 			sourceTree = "<group>";
@@ -92,6 +97,7 @@
 				97BBC8BB25D12BDF002CDE6F /* Login.swift */,
 				97BBC8BE25D12C0D002CDE6F /* Register.swift */,
 				9797C76325D179FC00B80C1F /* Standings.swift */,
+				9797C73D25D175F900B80C1F /* Animation.swift */,
 				97BBC8C425D12D9D002CDE6F /* Models */,
 				97BBC8AD25D12576002CDE6F /* Assets.xcassets */,
 				97BBC8B225D12576002CDE6F /* Info.plist */,
@@ -197,11 +203,13 @@
 			files = (
 				9797C76725D17A2800B80C1F /* Team.swift in Sources */,
 				97BBC8C225D12CC8002CDE6F /* Main.swift in Sources */,
+				97D1E14125D286AC00944DEA /* TBandTGL.swift in Sources */,
 				9797C77525D182FE00B80C1F /* MyToggle.swift in Sources */,
 				97BBC8C625D12DAC002CDE6F /* Game.swift in Sources */,
 				9797C77225D17DEB00B80C1F /* TabBar.swift in Sources */,
 				9797C76B25D17CDF00B80C1F /* TB.swift in Sources */,
 				9797C76E25D17D0300B80C1F /* BlurView.swift in Sources */,
+				97D1E13E25D2841800944DEA /* MyForm.swift in Sources */,
 				97BBC8BC25D12BDF002CDE6F /* Login.swift in Sources */,
 				97BBC8AC25D1256E002CDE6F /* Home.swift in Sources */,
 				97BBC8BF25D12C0D002CDE6F /* Register.swift in Sources */,
