@@ -11,7 +11,7 @@ import SDWebImageSwiftUI
 struct Main: View {
     @State var isShowed = true
     @State var isLive = false
-    @State var toggled: Bool = false
+    @State var toggled = false
 
     var body: some View {
         ZStack {
@@ -41,7 +41,7 @@ struct Main: View {
         var arrayGame : [Game] = []
         
         guard let url = URL(string:"https://apiv2.apifootball.com/?action=get_events&from=2015-01-01&to=3030-01-01&league_id=468&APIkey=6889a1b1a4a965232ebfc8495e336096345bc538625f78e34e6c321467ad1d40")
-//        guard let url = URL(string:"https://apiv2.apifootball.com/?action=get_events&from=2015-01-01&to=3030-01-01&league_id=46&APIkey=6889a1b1a4a965232ebfc8495e336096345bc538625f78e34e6c321467ad1d40")
+//        guard let url = URL(string:"https://apiv2.apifootball.com/?action=get_events&from=2021-01-01&to=3030-01-01&APIkey=6889a1b1a4a965232ebfc8495e336096345bc538625f78e34e6c321467ad1d40")
         
         else { return }
         

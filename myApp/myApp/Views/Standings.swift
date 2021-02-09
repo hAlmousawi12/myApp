@@ -16,44 +16,43 @@ struct Standings: View {
     var body: some View {
         ZStack {
             VStack{
-                if self.isShowed {
-                    GeometryReader{_ in
-                        AnimationScreen()
-                        
-                    }
-                }
+                if self.isShowed { AnimationScreen() }
                 if !self.isShowed{
                     Form{
                         
                         HStack {
-                            VStack(alignment: .center) {
+                            Group {
                                 Text("Team")
-                            }.frame(width: 50, height: 50)
-                            Spacer()
-                            HStack{
+                                Spacer()
                                 Spacer()
                                 Text("PTS")
                                 Spacer()
                                 Text("PLY")
                                 Spacer()
+                            }
+                            Group {
                                 Text("W")
+                                    .offset(x: -3 , y: 0)
                                 Spacer()
                                 Text("D")
+                                    .offset(x: 5 , y: 0)
                                 Spacer()
                                 Text("L")
+                                    .offset(x: 10 , y: 0)
                             }
-                        }
+                        }.padding(10)
                         ForEach(teams) {item in
                             VStack {
                                 Spacer()
                                 HStack(alignment: .center){
                                     Group {
-                                    Text("\(item.S).")
+                                        Text("\(item.S).")
                                     WebImage(url: URL(string: "\(item.TB)"))
                                         .resizable()
                                         .scaledToFit()
                                         .frame(width: 50, height: 50)
-                                    }.frame(width: 30, height: 50)
+                                    }
+                                    .frame(width: 30, height: 50)
                                     Spacer()
                                     HStack{
                                         Spacer()
@@ -101,7 +100,7 @@ struct Standings: View {
     func loadTeamData() {
         var arrayTeam: [Team] = []
         
-        guard let url = URL(string: "https://apiv2.apifootball.com/?action=get_standings&league_id=468&APIkey=9f8607a303e682d786af195655dbd534a38ebcad84ffb25f867718d4331c2a27")
+        guard let url = URL(string: "https://apiv2.apifootball.com/?action=get_standings&league_id=468&APIkey=6889a1b1a4a965232ebfc8495e336096345bc538625f78e34e6c321467ad1d40")
         else { return }
         
         URLSession.shared.dataTask(with: url){(data , response , error)  in
@@ -130,7 +129,7 @@ struct Standings: View {
 struct Standings_Previews: PreviewProvider {
     static var previews: some View {
         Standings()
-            .preferredColorScheme(.light)
+            .preferredColorScheme(.dark)
     }
 }
 

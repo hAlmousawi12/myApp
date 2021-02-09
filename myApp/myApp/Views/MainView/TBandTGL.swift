@@ -11,7 +11,7 @@ struct TBandTGL: View {
     @State var toggleSize: CGFloat = 0
     @State var toggleOffset: CGFloat = 0
     @State var toggleColor: Color = .gray
-    @State var toggled: Bool = false
+    @Binding var toggled: Bool
 
     var body: some View {
         GeometryReader { geometry in
@@ -21,6 +21,7 @@ struct TBandTGL: View {
                     Text(toggled ? "Live" : "")
                         
                     MyToggle(buttonSize: $toggleSize, buttonOffset: $toggleOffset, buttonColor: $toggleColor, toggled: $toggled)
+                        .shadow(color: Color.black.opacity(0.3), radius: 2.5, x: 0, y: 2.5)
                         
                 }.padding(.trailing)
                 Spacer()
@@ -34,9 +35,3 @@ struct TBandTGL: View {
     }
 }
 
-
-struct TBandTGL_Previews: PreviewProvider {
-    static var previews: some View {
-        TBandTGL()
-    }
-}

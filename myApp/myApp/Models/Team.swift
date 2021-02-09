@@ -8,7 +8,7 @@
 import Foundation
 
 struct Team: Codable, Identifiable {
-    var id: UUID? = UUID()
+    var id = UUID()
     var TN: String
     var S: String
     var MP: String

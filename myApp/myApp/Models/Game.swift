@@ -33,6 +33,7 @@ struct Game: Codable,Identifiable {
     var MR: String
     var LL: String
     var CL: String
+    var MOO: String
     var GS: [GoalScores]
     
     enum CodingKeys: String, CodingKey{
@@ -58,6 +59,7 @@ struct Game: Codable,Identifiable {
         case LL = "league_logo"
         case CL = "country_logo"
         case GS = "goalscorer"
+        case MOO = "match_id"
         
     }
 }
