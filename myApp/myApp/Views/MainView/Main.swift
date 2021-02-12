@@ -14,27 +14,27 @@ struct Main: View {
     @State var toggled = false
 
     var body: some View {
-        ZStack {
-            if self.isShowed { AnimationScreen() }
-            if !self.isShowed {
-                ZStack {
-                    Form {
-                        if toggled {
-                            MS(text: "Live🔴")
-                            LiveFE()
-                        } else  {
-                            MS(text: "Upcoming🧨")
-                            UpcomingFE()
-                            
-                            MS(text: "Done🪄")
-                            FinishedFE()
+            ZStack {
+                if self.isShowed { AnimationScreen() }
+                if !self.isShowed {
+                    ZStack {
+                        Form {
+                            if toggled {
+                                MS(text: "Live🔴")
+                                LiveFE()
+                            } else  {
+                                MS(text: "Upcoming🧨")
+                                UpcomingFE()
+                                
+                                MS(text: "Done🪄")
+                                FinishedFE()
+                            }
                         }
                     }
+                    TBandTGL(toggled: $toggled)
                 }
-                
-                TBandTGL(toggled: $toggled)
-            }
-        }.onAppear { loadData() }
+            }.navigationBarHidden(true)
+            .onAppear { loadData() }
     }
     func loadData(){
         
@@ -55,7 +55,7 @@ struct Main: View {
                         for i in decodedData{
                             
                             self.isShowed = false
-                            arrayGame.append(Game(MD: i.MD, MS: i.MS, MT: i.MT, HG: i.HG, AG: i.AG, HN: i.HN, AN: i.AN, THB: i.THB, TAB: i.TAB, CN: i.CN, LN: i.LN, MHHS: i.MHHS, MAHS: i.MAHS, MHES: i.MHES, MAES: i.MAES, MHPS: i.MHPS, MAPS: i.MAPS, MSt: i.MSt, MR: i.MR, LL: i.LL, CL: i.CL, MOO: i.MOO, GS: i.GS))
+                            arrayGame.append(Game(MD: i.MD, MS: i.MS, MT: i.MT, HG: i.HG, AG: i.AG, HN: i.HN, AN: i.AN, THB: i.THB, TAB: i.TAB, CN: i.CN, LN: i.LN, MHHS: i.MHHS, MAHS: i.MAHS, MHES: i.MHES, MAES: i.MAES, MHPS: i.MHPS, MAPS: i.MAPS, MSt: i.MSt, MR: i.MR, LL: i.LL, CL: i.CL, MOO: i.MOO, GS: i.GS, MHS: i.MHS, MAS: i.MAS, C: i.C, L: i.L)) //, St: i.St
                             games = arrayGame
                         }
                     }

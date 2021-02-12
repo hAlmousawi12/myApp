@@ -30,6 +30,8 @@ struct TBandTGL: View {
                     .cornerRadius(32)
                     .padding(.horizontal, 10)
                     .shadow(color: Color("Color").opacity(0.15), radius: 5, x: 0, y: 5)
+                
+                
             }
         }
     }

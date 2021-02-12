@@ -12,46 +12,50 @@ struct UpcomingFE: View {
     var body: some View {
         ForEach(games) { game in
             if game.MS == "" && game.MS != " " {
-                VStack {
-                    Spacer()
-                    HStack {
-                        Group {
-                            VStack {
-                                WebImage(url: URL(string: game.THB))
-                                    .resizable()
-                                    .frame(width: 70, height: 70)
+                NavigationLink(
+                    destination: MainDetails(game: game),
+                    label: {
+                        VStack {
+                            Spacer()
+                            HStack {
+                                Group {
+                                    VStack {
+                                        WebImage(url: URL(string: game.THB))
+                                            .resizable()
+                                            .frame(width: 70, height: 70)
+                                        
+                                    }
+                                    
+                                    Text(game.HG)
+                                        .bold()
+                                    
+                                }
                                 
+                                Spacer()
+                                VStack{
+                                    
+                                    Text(game.MD)
+                                        .foregroundColor(.secondary)
+                                    Text(game.MT)
+                                        .foregroundColor(.secondary)
+                                }.padding(.vertical)
+                                
+                                Spacer()
+                                
+                                Group {
+                                    Text(game.AG)
+                                        .bold()
+                                    VStack {
+                                        WebImage(url: URL(string: game.TAB))
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 70, height: 70)
+                                    }
+                                }
                             }
-                            
-                            Text(game.HG)
-                                .bold()
-                            
+                            Spacer()
                         }
-                        
-                        Spacer()
-                        VStack{
-                            
-                            Text(game.MD)
-                                .foregroundColor(.secondary)
-                            Text(game.MT)
-                                .foregroundColor(.secondary)
-                        }.padding(.vertical)
-                        
-                        Spacer()
-                        
-                        Group {
-                            Text(game.AG)
-                                .bold()
-                            VStack {
-                                WebImage(url: URL(string: game.TAB))
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 70, height: 70)
-                            }
-                        }
-                    }
-                    Spacer()
-                }
+                    })
             }
         }
     }

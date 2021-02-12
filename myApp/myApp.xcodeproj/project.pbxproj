@@ -24,6 +24,7 @@
 		97BBC8BF25D12C0D002CDE6F /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BBC8BE25D12C0D002CDE6F /* Register.swift */; };
 		97BBC8C625D12DAC002CDE6F /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BBC8C525D12DAC002CDE6F /* Game.swift */; };
 		97BBC8CB25D13070002CDE6F /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 97BBC8CA25D13070002CDE6F /* SDWebImageSwiftUI */; };
+		97BE477125D6AB730070527F /* MainDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BE477025D6AB730070527F /* MainDetails.swift */; };
 		97D1E14125D286AC00944DEA /* TBandTGL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D1E14025D286AC00944DEA /* TBandTGL.swift */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +47,7 @@
 		97BBC8BB25D12BDF002CDE6F /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		97BBC8BE25D12C0D002CDE6F /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
 		97BBC8C525D12DAC002CDE6F /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		97BE477025D6AB730070527F /* MainDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDetails.swift; sourceTree = "<group>"; };
 		97D1E14025D286AC00944DEA /* TBandTGL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TBandTGL.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -68,6 +70,7 @@
 				9797C77425D182FE00B80C1F /* MyToggle.swift */,
 				97D1E14025D286AC00944DEA /* TBandTGL.swift */,
 				97A2351925D2930200435B57 /* FEs.swift */,
+				97BE477025D6AB730070527F /* MainDetails.swift */,
 			);
 			path = MainView;
 			sourceTree = "<group>";
@@ -232,6 +235,7 @@
 				97D1E14125D286AC00944DEA /* TBandTGL.swift in Sources */,
 				9797C77525D182FE00B80C1F /* MyToggle.swift in Sources */,
 				97BBC8C625D12DAC002CDE6F /* Game.swift in Sources */,
+				97BE477125D6AB730070527F /* MainDetails.swift in Sources */,
 				9797C76B25D17CDF00B80C1F /* TB.swift in Sources */,
 				9797C76E25D17D0300B80C1F /* BlurView.swift in Sources */,
 				97BBC8BC25D12BDF002CDE6F /* Login.swift in Sources */,

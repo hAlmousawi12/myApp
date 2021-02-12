@@ -35,6 +35,11 @@ struct Game: Codable,Identifiable {
     var CL: String
     var MOO: String
     var GS: [GoalScores]
+    var MHS: String
+    var MAS: String
+    var C: [Cards]
+    var L: [Lineup]
+    var S: [Statistics]
     
     enum CodingKeys: String, CodingKey{
         case MD = "match_date"
@@ -60,10 +65,28 @@ struct Game: Codable,Identifiable {
         case CL = "country_logo"
         case GS = "goalscorer"
         case MOO = "match_id"
+        case MHS = "match_hometeam_system"
+        case MAS = "match_awayteam_system"
+        case C = "cards"
+        case L = "lineup"
+        case S = "statistics"
+    }
+}
+struct Statistics: Codable,Identifiable {
+    
+    var id = UUID()
+    var T: String
+    var H: String
+    var A: String
+   
+    
+    enum CodingKeys: String, CodingKey{
+        case T = "type"
+        case H = "home"
+        case A = "away"
         
     }
 }
-
 struct GoalScores: Codable,Identifiable {
     
     var id = UUID()
@@ -79,5 +102,112 @@ struct GoalScores: Codable,Identifiable {
         case S = "score"
         case AS = "away_scorer"
         case I = "info"
+    }
+}
+struct Cards: Codable,Identifiable {
+    
+    var id = UUID()
+    var T: String
+    var HF: String
+    var AF: String
+    var C: String
+    var I: String
+    
+    enum CodingKeys: String, CodingKey{
+        case T = "time"
+        case HF = "home_fault"
+        case AF = "away_fault"
+        case C = "card"
+        case I = "info"
+    }
+}
+struct Lineup: Codable,Identifiable {
+    
+    var id = UUID()
+    var H: [MyLineup]
+    var A: [MyLineup]
+    
+    
+    enum CodingKeys: String, CodingKey{
+        case H = "home"
+        case A = "away"
+        
+    }
+}
+struct MyLineup: Codable,Identifiable {
+    
+    var id = UUID()
+    var SL: [SL]
+    var S: [S]
+    var C: [C]
+    var MP: [MP]
+   
+    
+    enum CodingKeys: String, CodingKey{
+        case SL = "Starting_lineups"
+        case S = "substitutes"
+        case C = "coach"
+        case MP = "missing_players"
+        
+    }
+}
+struct SL: Codable,Identifiable {
+    
+    var id = UUID()
+    var P: String
+    var N: String
+    var Po: String
+   
+    
+    enum CodingKeys: String, CodingKey{
+        case P = "lineup_player"
+        case N = "lineup_number"
+        case Po = "lineup_position"
+        
+    }
+}
+struct S: Codable,Identifiable {
+    
+    var id = UUID()
+    var P: String
+    var N: String
+    var Po: String
+   
+    
+    enum CodingKeys: String, CodingKey{
+        case P = "lineup_player"
+        case N = "lineup_number"
+        case Po = "lineup_position"
+        
+    }
+}
+struct C: Codable,Identifiable {
+    
+    var id = UUID()
+    var P: String
+    var N: String
+    var Po: String
+   
+    
+    enum CodingKeys: String, CodingKey{
+        case P = "lineup_player"
+        case N = "lineup_number"
+        case Po = "lineup_position"
+        
+    }
+}
+struct MP: Codable,Identifiable {
+    
+    var id = UUID()
+    var P: String
+    var N: String
+    var Po: String
+   
+    
+    enum CodingKeys: String, CodingKey{
+        case P = "lineup_player"
+        case N = "lineup_number"
+        case Po = "lineup_position"
+        
     }
 }

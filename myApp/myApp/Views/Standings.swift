@@ -90,8 +90,7 @@ struct Standings: View {
                     }
                 }
             }
-        }
-        
+        }.navigationBarHidden(true)
     }
     
     
