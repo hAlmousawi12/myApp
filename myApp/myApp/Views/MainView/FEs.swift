@@ -9,6 +9,7 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 struct UpcomingFE: View {
+    @State var show = true
     var body: some View {
         ForEach(games) { game in
             if game.MS == "" && game.MS != " " {
@@ -33,7 +34,6 @@ struct UpcomingFE: View {
                                 
                                 Spacer()
                                 VStack{
-                                    
                                     Text(game.MD)
                                         .foregroundColor(.secondary)
                                     Text(game.MT)
@@ -62,96 +62,109 @@ struct UpcomingFE: View {
 }
 
 struct FinishedFE: View {
+    @State var show = true
     var body: some View {
         ForEach(games) { game in
             if isDone(game: game) {
-                VStack {
-                    Spacer()
-                    HStack {
-                        Group {
-                            VStack {
-                                WebImage(url: URL(string: game.THB))
-                                    .resizable()
-                                    .frame(width: 70, height: 70)
+                NavigationLink(
+                    destination: MainDetails(game: game),
+                    label: {
+                        VStack {
+                            Spacer()
+                            HStack {
+                                Group {
+                                    VStack {
+                                        WebImage(url: URL(string: game.THB))
+                                            .resizable()
+                                            .frame(width: 70, height: 70)
+                                        
+                                    }
+                                    
+                                    Text(game.HG)
+                                        .bold()
+                                    
+                                }
                                 
+                                Spacer()
+                                
+                                VStack{
+                                    Text(game.MS)
+                                        .font(.title2)
+                                    Text(game.MD)
+                                        .foregroundColor(.secondary)
+                                }.padding(.vertical)
+                                
+                                Spacer()
+                                
+                                Group {
+                                    Text(game.AG)
+                                        .bold()
+                                    VStack {
+                                        WebImage(url: URL(string: game.TAB))
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 70, height: 70)
+                                    }
+                                }
                             }
-                            
-                            Text(game.HG)
-                                .bold()
-                            
+                            Spacer()
                         }
-                        
-                        Spacer()
-                        
-                        VStack{
-                            Text(game.MS)
-                                .font(.title)
-                            Text(game.MD)
-                                .foregroundColor(.secondary)
-                        }.padding(.vertical)
-                        
-                        Spacer()
-                        
-                        Group {
-                            Text(game.AG)
-                                .bold()
-                            VStack {
-                                WebImage(url: URL(string: game.TAB))
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 70, height: 70)
-                            }
-                        }
-                    }
-                    Spacer()
-                }
+                    })
+                
             }
         }
     }
 }
 
 struct LiveFE: View {
+    @State var show = true
     var body: some View {
         ForEach(games) { game in
             if isLive(game: game){
-                VStack {
-                    Spacer()
-                    HStack {
-                        Group {
-                            VStack {
-                                WebImage(url: URL(string: game.THB))
-                                    .resizable()
-                                    .frame(width: 70, height: 70)
+                NavigationLink(
+                    destination: MainDetails(game: game),
+                    label: {
+                        VStack {
+                            Spacer()
+                            HStack {
+                                Group {
+                                    VStack {
+                                        WebImage(url: URL(string: game.THB))
+                                            .resizable()
+                                            .frame(width: 70, height: 70)
+                                        
+                                    }
+                                    
+                                    Text(game.HG)
+                                        .bold()
+                                    
+                                }
                                 
+                                Spacer()
+                                
+                                VStack{
+                                    
+                                    Text(game.MS)
+                                        .font(.title)
+                                }.padding(.vertical)
+                                
+                                Spacer()
+                                
+                                Group {
+                                    Text(game.AG)
+                                        .bold()
+                                    VStack {
+                                        WebImage(url: URL(string: game.TAB))
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 70, height: 70)
+                                    }
+                                }
                             }
-                            
-                            Text(game.HG)
-                                .bold()
-                            
+                            Spacer()
                         }
-                        
-                        Spacer()
-                        
-                        VStack{
-                            Text(game.MS)
-                                .font(.title)
-                        }.padding(.vertical)
-                        
-                        Spacer()
-                        
-                        Group {
-                            Text(game.AG)
-                                .bold()
-                            VStack {
-                                WebImage(url: URL(string: game.TAB))
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 70, height: 70)
-                            }
-                        }
-                    }
-                    Spacer()
-                }
+                    })
+                
             }
         }
     }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		97936C6125D9426200603EA1 /* tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97936C6025D9426200603EA1 /* tests.swift */; };
+		97936C6425D9452500603EA1 /* RingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97936C6325D9452400603EA1 /* RingView.swift */; };
 		9797C73E25D175F900B80C1F /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9797C73D25D175F900B80C1F /* Animation.swift */; };
 		9797C76425D179FC00B80C1F /* Standings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9797C76325D179FC00B80C1F /* Standings.swift */; };
 		9797C76725D17A2800B80C1F /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9797C76625D17A2800B80C1F /* Team.swift */; };
@@ -29,6 +31,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		97936C6025D9426200603EA1 /* tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tests.swift; sourceTree = "<group>"; };
+		97936C6325D9452400603EA1 /* RingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RingView.swift; sourceTree = "<group>"; };
 		9797C73D25D175F900B80C1F /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
 		9797C76325D179FC00B80C1F /* Standings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Standings.swift; sourceTree = "<group>"; };
 		9797C76625D17A2800B80C1F /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
@@ -89,6 +93,8 @@
 				9797C73D25D175F900B80C1F /* Animation.swift */,
 				9797C76D25D17D0300B80C1F /* BlurView.swift */,
 				9797C76A25D17CDF00B80C1F /* TB.swift */,
+				97936C6325D9452400603EA1 /* RingView.swift */,
+				97936C6025D9426200603EA1 /* tests.swift */,
 			);
 			path = more;
 			sourceTree = "<group>";
@@ -234,11 +240,13 @@
 				97A2351A25D2930200435B57 /* FEs.swift in Sources */,
 				97D1E14125D286AC00944DEA /* TBandTGL.swift in Sources */,
 				9797C77525D182FE00B80C1F /* MyToggle.swift in Sources */,
+				97936C6125D9426200603EA1 /* tests.swift in Sources */,
 				97BBC8C625D12DAC002CDE6F /* Game.swift in Sources */,
 				97BE477125D6AB730070527F /* MainDetails.swift in Sources */,
 				9797C76B25D17CDF00B80C1F /* TB.swift in Sources */,
 				9797C76E25D17D0300B80C1F /* BlurView.swift in Sources */,
 				97BBC8BC25D12BDF002CDE6F /* Login.swift in Sources */,
+				97936C6425D9452500603EA1 /* RingView.swift in Sources */,
 				97BBC8AC25D1256E002CDE6F /* Home.swift in Sources */,
 				97BBC8BF25D12C0D002CDE6F /* Register.swift in Sources */,
 				9797C76425D179FC00B80C1F /* Standings.swift in Sources */,

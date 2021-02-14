@@ -25,7 +25,7 @@ struct Login: View {
                            
                     }
                 )
-                .shadow(color: Color("Shadow").opacity(0.5), radius: 5, x: 0, y: 5)
+                .shadow(color: Color("Shadow").opacity(0.3), radius: 5, x: 0, y: 5)
                 .padding()
             }
         }

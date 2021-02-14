@@ -38,7 +38,7 @@ struct Game: Codable,Identifiable {
     var MHS: String
     var MAS: String
     var C: [Cards]
-    var L: [Lineup]
+//    var L: [Lineup]
     var S: [Statistics]
     
     enum CodingKeys: String, CodingKey{
@@ -68,7 +68,7 @@ struct Game: Codable,Identifiable {
         case MHS = "match_hometeam_system"
         case MAS = "match_awayteam_system"
         case C = "cards"
-        case L = "lineup"
+//        case L = "lineup"
         case S = "statistics"
     }
 }
@@ -87,7 +87,7 @@ struct Statistics: Codable,Identifiable {
         
     }
 }
-struct GoalScores: Codable,Identifiable {
+struct GoalScores: Equatable,Codable,Identifiable {
     
     var id = UUID()
     var T: String
@@ -104,7 +104,7 @@ struct GoalScores: Codable,Identifiable {
         case I = "info"
     }
 }
-struct Cards: Codable,Identifiable {
+struct Cards: Equatable,Codable,Identifiable {
     
     var id = UUID()
     var T: String
@@ -127,76 +127,29 @@ struct Lineup: Codable,Identifiable {
     var H: [MyLineup]
     var A: [MyLineup]
     
-    
     enum CodingKeys: String, CodingKey{
         case H = "home"
         case A = "away"
-        
     }
 }
 struct MyLineup: Codable,Identifiable {
     
     var id = UUID()
-    var SL: [SL]
-    var S: [S]
-    var C: [C]
-    var MP: [MP]
+    var SL: [Player]
+    var S: [Player]
+    var C: [Player]
+    var MP: [Player]
    
     
     enum CodingKeys: String, CodingKey{
-        case SL = "Starting_lineups"
+        case SL = "starting_lineups"
         case S = "substitutes"
         case C = "coach"
         case MP = "missing_players"
         
     }
 }
-struct SL: Codable,Identifiable {
-    
-    var id = UUID()
-    var P: String
-    var N: String
-    var Po: String
-   
-    
-    enum CodingKeys: String, CodingKey{
-        case P = "lineup_player"
-        case N = "lineup_number"
-        case Po = "lineup_position"
-        
-    }
-}
-struct S: Codable,Identifiable {
-    
-    var id = UUID()
-    var P: String
-    var N: String
-    var Po: String
-   
-    
-    enum CodingKeys: String, CodingKey{
-        case P = "lineup_player"
-        case N = "lineup_number"
-        case Po = "lineup_position"
-        
-    }
-}
-struct C: Codable,Identifiable {
-    
-    var id = UUID()
-    var P: String
-    var N: String
-    var Po: String
-   
-    
-    enum CodingKeys: String, CodingKey{
-        case P = "lineup_player"
-        case N = "lineup_number"
-        case Po = "lineup_position"
-        
-    }
-}
-struct MP: Codable,Identifiable {
+struct Player: Codable,Identifiable {
     
     var id = UUID()
     var P: String
