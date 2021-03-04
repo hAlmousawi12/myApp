@@ -24,7 +24,7 @@ struct TBandTGL: View {
                         .shadow(color: Color.black.opacity(0.3), radius: 2.5, x: 0, y: 2.5)
                 }.padding(.trailing)
                 Spacer()
-                TB(color1: Color("Shadow2"), color2: Color.secondary, color3: Color.secondary, color4: Color.secondary, color5: Color.secondary)
+                TB(color1: Color("Primary"), color2: Color("Primary3ks"), color3: Color("Primary3ks"), color4: Color("Primary3ks"), color5: Color("Primary3ks"))
                     .frame(width: geometry.size.width - 20, height: 90)
                     .cornerRadius(32)
                     .padding(.horizontal, 10)

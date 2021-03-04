@@ -1,65 +1,16 @@
 PODS:
-  - AppAuth (1.4.0):
-    - AppAuth/Core (= 1.4.0)
-    - AppAuth/ExternalUserAgent (= 1.4.0)
-  - AppAuth/Core (1.4.0)
-  - AppAuth/ExternalUserAgent (1.4.0)
   - CodableFirebase (0.2.1)
-  - FBSDKCoreKit (9.0.1):
-    - FBSDKCoreKit/Basics (= 9.0.1)
-    - FBSDKCoreKit/Core (= 9.0.1)
-  - FBSDKCoreKit/Basics (9.0.1)
-  - FBSDKCoreKit/Core (9.0.1):
-    - FBSDKCoreKit/Basics
-  - FBSDKLoginKit (9.0.1):
-    - FBSDKLoginKit/Login (= 9.0.1)
-  - FBSDKLoginKit/Login (9.0.1):
-    - FBSDKCoreKit (~> 9.0.1)
-  - FBSDKShareKit (9.0.1):
-    - FBSDKShareKit/Share (= 9.0.1)
-  - FBSDKShareKit/Share (9.0.1):
-    - FBSDKCoreKit (~> 9.0.1)
-  - GoogleSignIn (5.0.2):
-    - AppAuth (~> 1.2)
-    - GTMAppAuth (~> 1.0)
-    - GTMSessionFetcher/Core (~> 1.1)
-  - GTMAppAuth (1.1.0):
-    - AppAuth/Core (~> 1.4)
-    - GTMSessionFetcher (~> 1.4)
-  - GTMSessionFetcher (1.5.0):
-    - GTMSessionFetcher/Full (= 1.5.0)
-  - GTMSessionFetcher/Core (1.5.0)
-  - GTMSessionFetcher/Full (1.5.0):
-    - GTMSessionFetcher/Core (= 1.5.0)
 
 DEPENDENCIES:
   - CodableFirebase
-  - FBSDKCoreKit
-  - FBSDKLoginKit
-  - FBSDKShareKit
-  - GoogleSignIn
 
 SPEC REPOS:
   trunk:
-    - AppAuth
     - CodableFirebase
-    - FBSDKCoreKit
-    - FBSDKLoginKit
-    - FBSDKShareKit
-    - GoogleSignIn
-    - GTMAppAuth
-    - GTMSessionFetcher
 
 SPEC CHECKSUMS:
-  AppAuth: 31bcec809a638d7bd2f86ea8a52bd45f6e81e7c7
   CodableFirebase: 0bf201991eeec35eb9fcd987d271ea463cf34a80
-  FBSDKCoreKit: fada1a6a0076724678993ff05a633848765ff18c
-  FBSDKLoginKit: d5ffe6d808897019ccf16feb6f0a7ab260bc5cd6
-  FBSDKShareKit: 6a85acb92eaf43a0b6dfa2ba6106eb74c7f10d30
-  GoogleSignIn: 7137d297ddc022a7e0aa4619c86d72c909fa7213
-  GTMAppAuth: 197a8dabfea5d665224aa00d17f164fc2248dab9
-  GTMSessionFetcher: b3503b20a988c4e20cc189aa798fd18220133f52
 
-PODFILE CHECKSUM: aa1cb2343de6cb6f7d60a40f87b2ec5d6c4588b6
+PODFILE CHECKSUM: 0c072ec2aa5668acdb383a8b80d62fd2eafa2566
 
 COCOAPODS: 1.10.1

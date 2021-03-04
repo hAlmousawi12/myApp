@@ -35,9 +35,11 @@ struct StandingsDetail: View {
                                     }
                                     Group {
                                         MyStack(txt1: "Coach info: ", txt2: "")
-                                        MyStack(txt1: "Name: ", txt2: team.C[0].CN)
-                                        MyStack(txt1: "Country: ", txt2: team.C[0].CC)
-                                        MyStack(txt1: "Age: ", txt2: team.C[0].CA)
+                                        if team.C != [] {
+                                            MyStack(txt1: "Name: ", txt2: team.C[0].CN)
+                                            MyStack(txt1: "Country: ", txt2: team.C[0].CC)
+                                            MyStack(txt1: "Age: ", txt2: team.C[0].CA)
+                                        }
                                     }
                                     Divider()
                                     Group {

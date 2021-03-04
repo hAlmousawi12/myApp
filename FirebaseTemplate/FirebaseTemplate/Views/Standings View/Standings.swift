@@ -85,7 +85,7 @@ struct Standings: View {
                         VStack {
                             Spacer()
                             
-                            TB(color1: Color.secondary, color2: Color("Shadow2"), color3: Color.secondary, color4: Color.secondary, color5: Color.secondary)
+                            TB(color1: Color("Primary3ks"), color2: Color("Primary"), color3: Color("Primary3ks"), color4: Color("Primary3ks"), color5: Color("Primary3ks"))
                                 .frame(width: geometry.size.width - 20, height: 90)
                                 .cornerRadius(32)
                                 .padding(.horizontal, 10)

@@ -45,17 +45,17 @@ struct TB: View {
                             Text("Standings")
                         }.foregroundColor(color2)
                     })
-                Spacer()
-                NavigationLink(
-                    destination: Profile(),
-                    label: {
-                        VStack(alignment: .center) {
-                            Image(systemName: "person.circle")
-                                .font(.title2)
-                            Text("Profile")
-                        }.foregroundColor(color3)
-                    })
-                Spacer()
+//                Spacer()
+//                NavigationLink(
+//                    destination: FC(),
+//                    label: {
+//                        VStack(alignment: .center) {
+//                            Image(systemName: "star")
+//                                .font(.title2)
+//                            Text("favorite club")
+//                        }.foregroundColor(color3)
+//                    })
+//                Spacer()
 //                NavigationLink(
 //                    destination: Store(),
 //                    label: {
@@ -65,19 +65,19 @@ struct TB: View {
 //                            Text("Store")
 //                        }.foregroundColor(color4)
 //                    })
-//                Spacer()
-//                NavigationLink(
-//                    destination: More(),
-//                    label: {
-//                        VStack(alignment: .center) {
-//                            Image(systemName: "gear")
-//                                .font(.title2)
-//                            Text("Settings")
-//                        }
-//                        .foregroundColor(color5)
-//
-//                    })
-//                Spacer()
+                Spacer()
+                NavigationLink(
+                    destination: Profile(),
+                    label: {
+                        VStack(alignment: .center) {
+                            Image(systemName: "person.circle")
+                                .font(.title2)
+                            Text("Profile")
+                        }
+                        .foregroundColor(color5)
+
+                    })
+                Spacer()
             }.font(.footnote)
         }
     }

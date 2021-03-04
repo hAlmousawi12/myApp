@@ -18,7 +18,7 @@ struct MainView: View {
             else{
                 AuthenticationView()
             }
-        }.accentColor(Color("card4"))
+        }.accentColor(Color("Primary"))
     }
 }
 

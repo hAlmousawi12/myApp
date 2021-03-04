@@ -34,6 +34,7 @@
 		9723011A25EFE0EF004E2D63 /* tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9723010D25EFE0EF004E2D63 /* tests.swift */; };
 		9723011D25EFE0F6004E2D63 /* FEFuncs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9723011C25EFE0F6004E2D63 /* FEFuncs.swift */; };
 		9723012525F0062E004E2D63 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9723012425F0062E004E2D63 /* Profile.swift */; };
+		97C54D1925F17F7D008DD32B /* ChangeFC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C54D1825F17F7D008DD32B /* ChangeFC.swift */; };
 		D2C079A2259813E70053EDFD /* MainApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C079A1259813E70053EDFD /* MainApp.swift */; };
 		D2C079AD259815F30053EDFD /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C079AC259815F30053EDFD /* SignIn.swift */; };
 		D2C079B2259816BD0053EDFD /* FirebaseEnv.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C079B1259816BD0053EDFD /* FirebaseEnv.swift */; };
@@ -106,6 +107,7 @@
 		9723010D25EFE0EF004E2D63 /* tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tests.swift; sourceTree = "<group>"; };
 		9723011C25EFE0F6004E2D63 /* FEFuncs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FEFuncs.swift; sourceTree = "<group>"; };
 		9723012425F0062E004E2D63 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		97C54D1825F17F7D008DD32B /* ChangeFC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeFC.swift; sourceTree = "<group>"; };
 		B1FD124CAB9AE9745E818900 /* Pods-FirebaseTemplate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebaseTemplate.debug.xcconfig"; path = "Target Support Files/Pods-FirebaseTemplate/Pods-FirebaseTemplate.debug.xcconfig"; sourceTree = "<group>"; };
 		D2C079A1259813E70053EDFD /* MainApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainApp.swift; sourceTree = "<group>"; };
 		D2C079AC259815F30053EDFD /* SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignIn.swift; sourceTree = "<group>"; };
@@ -243,6 +245,7 @@
 			isa = PBXGroup;
 			children = (
 				9723012425F0062E004E2D63 /* Profile.swift */,
+				97C54D1825F17F7D008DD32B /* ChangeFC.swift */,
 			);
 			path = "Profile View";
 			sourceTree = "<group>";
@@ -418,7 +421,6 @@
 				D2C26FCD24662807005E16A3 /* Frameworks */,
 				D2C26FCE24662807005E16A3 /* Resources */,
 				091AD200CEF84381B228F838 /* [CP] Embed Pods Frameworks */,
-				A9B09EE499CD6E0CD3F7D8D4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -503,23 +505,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FirebaseTemplate/Pods-FirebaseTemplate-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A9B09EE499CD6E0CD3F7D8D4 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FirebaseTemplate/Pods-FirebaseTemplate-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FirebaseTemplate/Pods-FirebaseTemplate-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FirebaseTemplate/Pods-FirebaseTemplate-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		B8712BF3409238074BA0C021 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -557,6 +542,7 @@
 				D2C079BE259819FD0053EDFD /* MainView.swift in Sources */,
 				9723011D25EFE0F6004E2D63 /* FEFuncs.swift in Sources */,
 				972300F825EFE0CE004E2D63 /* FEs.swift in Sources */,
+				97C54D1925F17F7D008DD32B /* ChangeFC.swift in Sources */,
 				D2C2705724662F3F005E16A3 /* Item.swift in Sources */,
 				9723010F25EFE0EF004E2D63 /* BlurView.swift in Sources */,
 				972300F725EFE0CE004E2D63 /* MyToggle.swift in Sources */,

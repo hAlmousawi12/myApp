@@ -73,7 +73,7 @@ struct MyToggle: View {
             withAnimation(Animation.easeInOut(duration: 0.5)) {
                 buttonSize = capsuleSize * 0.925
                 buttonOffset = 0
-                buttonColor = Color("Shadow2")
+                buttonColor = Color("Primary")
             }
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 withAnimation(Animation.easeInOut(duration: 0.5)) {

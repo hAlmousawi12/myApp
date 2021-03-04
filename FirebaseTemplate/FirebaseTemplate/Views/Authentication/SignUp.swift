@@ -12,13 +12,13 @@ struct SignUp: View {
     @State var user = User()
     @State var password = ""
     @EnvironmentObject var env: FirebaseEnv
-    var colors = ["Red", "Green", "Blue", "Tartan"]
+    var teams = ["Atl. Madrid", "Barcelona", "Real Madrid", "Sevilla", "Real Sociedad", "Betis", "Villarreal", "Granada CF", "Levante", "Ath Bilbao", "Celta Vigo", "Osasuna", "Getafe", "Valencia", "Cadiz CF", "Eibar", "Valladolid", "Alaves", "Elchi", "Huesca"]
     @State var selectedTeam = ""
     var body: some View {
         Form{
             VStack(alignment: .leading) {
-                Picker("chose your favorite club", selection: $selectedTeam) {
-                    ForEach(colors, id: \.self) {
+                Picker("select your favorite club", selection: $selectedTeam) {
+                    ForEach(teams, id: \.self) {
                         Text($0)
                     }
                 }
@@ -26,9 +26,10 @@ struct SignUp: View {
                 
                 HStack {
                     Text("Your favorite club is:")
-                        .foregroundColor(Color("card4"))
+                        .foregroundColor(Color("Primary"))
                     Text(selectedTeam)
-                        .foregroundColor(Color("card3"))
+                        .foregroundColor(Color("Primary"))
+                        .bold()
                 }
             }
             

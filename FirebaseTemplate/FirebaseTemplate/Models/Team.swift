@@ -74,7 +74,7 @@ struct Players: Codable, Identifiable {
     }
 }
 
-struct Coaches: Codable, Identifiable {
+struct Coaches: Codable, Identifiable, Equatable {
     var id = UUID()
     var CN: String
     var CC: String

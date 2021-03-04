@@ -8,8 +8,8 @@ target 'FirebaseTemplate' do
    project 'FirebaseTemplate.xcworkspace'
   # Pods for FirebaseTemplate
   
-  pod 'GoogleSignIn'
-  pod 'FBSDKCoreKit'
-  pod 'FBSDKLoginKit'
-  pod 'FBSDKShareKit'
+#  pod 'GoogleSignIn'
+#  pod 'FBSDKCoreKit'
+#  pod 'FBSDKLoginKit'
+#  pod 'FBSDKShareKit'
 end

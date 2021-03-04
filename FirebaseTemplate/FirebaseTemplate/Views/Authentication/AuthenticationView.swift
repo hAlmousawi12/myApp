@@ -7,23 +7,42 @@
 //
 
 import SwiftUI
-import GoogleSignIn
-import FBSDKLoginKit
+//import GoogleSignIn
+//import FBSDKLoginKit
 struct AuthenticationView: View {
-    @AppStorage("logged") var logged = false
-    @AppStorage("email") var email = ""
-    @State var manager = LoginManager()
+//    @AppStorage("logged") var logged = false
+//    @AppStorage("email") var email = ""
+//    @State var manager = LoginManager()
     @EnvironmentObject var env: FirebaseEnv
     var body: some View {
-            VStack{
-                NavigationLink(
-                    destination: SignIn(),
-                    label: {Text("Sign in").modifier(SignInModifier())}
-                )
-                NavigationLink(
-                    destination: SignUp(),
-                    label: {Text("Create an account")}
-                )
+        VStack {
+            Image("Logo")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 100, height: 100)
+                .clipShape(Circle())
+                .padding(.top, 50)
+            Spacer()
+            NavigationLink(
+                destination: SignIn(),
+                label: {
+                    Text("Login")
+                        .foregroundColor(Color("lightText"))
+                        .modifier(SignInModifier())
+                    
+                    
+                }
+            )
+            NavigationLink(
+                destination: SignUp(),
+                label: {
+                    Text("Register")
+                        .foregroundColor(Color("lightText"))
+                        .modifier(SignInModifier())
+                    
+                }
+            )
+             Spacer()
 //                Button(action: {
 //                    GIDSignIn.sharedInstance()?.presentingViewController = UIApplication.shared.windows.first?.rootViewController
 //
@@ -87,7 +106,7 @@ struct AuthenticationView: View {
 //                        .font(.system(size: 12.5, weight: .light))
 //
 //                        })
-            }
+        }
     }
 }
 
@@ -97,14 +116,16 @@ struct SignInModifier: ViewModifier{
             .foregroundColor(.white)
             .padding()
             .frame(minWidth: 100, idealWidth: 200, maxWidth: .infinity,  alignment: .center)
-            .background(Color("card4"))
+            .background(Color("Primary"))
             .cornerRadius(10)
             .padding(.horizontal)
+            
     }
 }
 
 struct AuthenticationView_Previews: PreviewProvider {
     static var previews: some View {
         AuthenticationView()
+            .preferredColorScheme(.light)
     }
 }
