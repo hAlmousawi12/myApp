@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		97211FAA25F1A3010022661E /* UserEnv.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97211FA925F1A3010022661E /* UserEnv.swift */; };
 		972300CC25EFDF43004E2D63 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 972300CB25EFDF43004E2D63 /* SDWebImageSwiftUI */; };
 		972300CF25EFDF65004E2D63 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 972300CE25EFDF65004E2D63 /* Lottie */; };
 		972300EC25EFE0C0004E2D63 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 972300EB25EFE0C0004E2D63 /* GoogleService-Info.plist */; };
@@ -34,6 +35,7 @@
 		9723011A25EFE0EF004E2D63 /* tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9723010D25EFE0EF004E2D63 /* tests.swift */; };
 		9723011D25EFE0F6004E2D63 /* FEFuncs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9723011C25EFE0F6004E2D63 /* FEFuncs.swift */; };
 		9723012525F0062E004E2D63 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9723012425F0062E004E2D63 /* Profile.swift */; };
+		9770B11D25F2565100522745 /* FC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9770B11C25F2565100522745 /* FC.swift */; };
 		97C54D1925F17F7D008DD32B /* ChangeFC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C54D1825F17F7D008DD32B /* ChangeFC.swift */; };
 		D2C079A2259813E70053EDFD /* MainApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C079A1259813E70053EDFD /* MainApp.swift */; };
 		D2C079AD259815F30053EDFD /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C079AC259815F30053EDFD /* SignIn.swift */; };
@@ -82,6 +84,7 @@
 
 /* Begin PBXFileReference section */
 		9377AE6CE82235456148A2D9 /* Pods-FirebaseTemplate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebaseTemplate.release.xcconfig"; path = "Target Support Files/Pods-FirebaseTemplate/Pods-FirebaseTemplate.release.xcconfig"; sourceTree = "<group>"; };
+		97211FA925F1A3010022661E /* UserEnv.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEnv.swift; sourceTree = "<group>"; };
 		972300EB25EFE0C0004E2D63 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		972300EE25EFE0CD004E2D63 /* MainDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainDetails.swift; sourceTree = "<group>"; };
 		972300EF25EFE0CD004E2D63 /* MyToggle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyToggle.swift; sourceTree = "<group>"; };
@@ -107,6 +110,7 @@
 		9723010D25EFE0EF004E2D63 /* tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tests.swift; sourceTree = "<group>"; };
 		9723011C25EFE0F6004E2D63 /* FEFuncs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FEFuncs.swift; sourceTree = "<group>"; };
 		9723012425F0062E004E2D63 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		9770B11C25F2565100522745 /* FC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FC.swift; sourceTree = "<group>"; };
 		97C54D1825F17F7D008DD32B /* ChangeFC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeFC.swift; sourceTree = "<group>"; };
 		B1FD124CAB9AE9745E818900 /* Pods-FirebaseTemplate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebaseTemplate.debug.xcconfig"; path = "Target Support Files/Pods-FirebaseTemplate/Pods-FirebaseTemplate.debug.xcconfig"; sourceTree = "<group>"; };
 		D2C079A1259813E70053EDFD /* MainApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainApp.swift; sourceTree = "<group>"; };
@@ -250,10 +254,19 @@
 			path = "Profile View";
 			sourceTree = "<group>";
 		};
+		9770B11B25F2563A00522745 /* FavoriteClub View */ = {
+			isa = PBXGroup;
+			children = (
+				9770B11C25F2565100522745 /* FC.swift */,
+			);
+			path = "FavoriteClub View";
+			sourceTree = "<group>";
+		};
 		D2C079A9259815BD0053EDFD /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				D2C079BD259819FD0053EDFD /* MainView.swift */,
+				9770B11B25F2563A00522745 /* FavoriteClub View */,
 				9723012325F0060B004E2D63 /* Profile View */,
 				972300ED25EFE0CD004E2D63 /* MainView */,
 				972300F325EFE0CD004E2D63 /* Standings View */,
@@ -267,6 +280,7 @@
 			children = (
 				D2C079B1259816BD0053EDFD /* FirebaseEnv.swift */,
 				D2C079D5259841D10053EDFD /* ItemsEnv.swift */,
+				97211FA925F1A3010022661E /* UserEnv.swift */,
 			);
 			path = Environments;
 			sourceTree = "<group>";
@@ -543,6 +557,7 @@
 				9723011D25EFE0F6004E2D63 /* FEFuncs.swift in Sources */,
 				972300F825EFE0CE004E2D63 /* FEs.swift in Sources */,
 				97C54D1925F17F7D008DD32B /* ChangeFC.swift in Sources */,
+				9770B11D25F2565100522745 /* FC.swift in Sources */,
 				D2C2705724662F3F005E16A3 /* Item.swift in Sources */,
 				9723010F25EFE0EF004E2D63 /* BlurView.swift in Sources */,
 				972300F725EFE0CE004E2D63 /* MyToggle.swift in Sources */,
@@ -558,6 +573,7 @@
 				972300FF25EFE0DE004E2D63 /* Game.swift in Sources */,
 				9723011625EFE0EF004E2D63 /* Codable.swift in Sources */,
 				972300FB25EFE0CE004E2D63 /* Standings.swift in Sources */,
+				97211FAA25F1A3010022661E /* UserEnv.swift in Sources */,
 				D2C2704A24662C68005E16A3 /* Keyboard.swift in Sources */,
 				D2C079B6259818A20053EDFD /* SignUp.swift in Sources */,
 				D2C2705224662C9A005E16A3 /* User.swift in Sources */,

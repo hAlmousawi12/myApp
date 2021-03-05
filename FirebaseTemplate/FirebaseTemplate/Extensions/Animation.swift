@@ -9,7 +9,7 @@ import SwiftUI
 let lightBlue = Color(UIColor(red: 0.35, green: 0.80, blue: 0.93, alpha: 1.00))
 struct AnimationScreen: View {
     @State private var numberOfTheAnimationgBall = 3
-    
+    var isFC: Bool = false
     var body: some View {
         ZStack {
             Color("background2").edgesIgnoringSafeArea(.all)
@@ -34,6 +34,12 @@ struct AnimationScreen: View {
                 Text("Loading...")
                     .font(.title)
                     .padding()
+                
+                if isFC {
+                    Text("If This Took More Than 5sec Restart The Page\nBy Tapping On Favorite Club Again")
+                        .font(.subheadline)
+                        .padding()
+                }
             }
         }.navigationBarHidden(true)
     }

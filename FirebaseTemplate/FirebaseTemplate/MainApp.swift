@@ -15,6 +15,7 @@ struct MainApp: App {
 //                    ApplicationDelegate.shared.application(UIApplication.shared, open: url, sourceApplication: nil, annotation: UIApplication.OpenURLOptionsKey.annotation)
 //                })
                 .environmentObject(FirebaseEnv())
+                .environmentObject(UserEnv())
         }
     }
 }

@@ -47,11 +47,11 @@ struct MainDetails: View {
                                     Spacer()
                                     VStack{
                                         if game.MS == "" || game.MS == " " {
-                                            RingView(color1: #colorLiteral(red: 1, green: 0.4512892365, blue: 0, alpha: 1), color2: #colorLiteral(red: 1, green: 0, blue: 0, alpha: 1), width: 50, height: 50, percent: 0, show: $show, EGShowed: $EGShowed)
+                                            RingView(color1: Color("Primary3ks"), color2: Color("Primary"), width: 50, height: 50, percent: 0, show: $show, EGShowed: $EGShowed)
                                         } else if game.MS == "Finished" {
-                                            RingView(color1: #colorLiteral(red: 1, green: 0.4512892365, blue: 0, alpha: 1), color2: #colorLiteral(red: 1, green: 0, blue: 0, alpha: 1), width: 50, height: 50, percent: 90, show: $show, EGShowed: $EGShowed)
+                                            RingView(color1: Color("Primary3ks"), color2: Color("Primary"), width: 50, height: 50, percent: 90, show: $show, EGShowed: $EGShowed)
                                         } else {
-                                            RingView(color1: #colorLiteral(red: 1, green: 0.4512892365, blue: 0, alpha: 1), color2: #colorLiteral(red: 1, green: 0, blue: 0, alpha: 1), width: 50, height: 50, percent: Double(game.MS) ?? 45, show: $show, EGShowed: $EGShowed)
+                                            RingView(color1: Color("Primary3ks"), color2: Color("Primary"), width: 50, height: 50, percent: Double(game.MS) ?? 45, show: $show, EGShowed: $EGShowed)
                                         }
                                         Text(game.MD)
                                         Text(game.MT)

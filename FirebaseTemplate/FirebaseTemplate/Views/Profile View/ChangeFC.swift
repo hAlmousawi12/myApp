@@ -10,6 +10,7 @@ import SwiftUI
 
 struct ChangeFC: View {
     @EnvironmentObject var env: FirebaseEnv
+    @EnvironmentObject var envv: UserEnv
     @EnvironmentObject var item: ItemsEnv
     var teams = ["Atl. Madrid", "Barcelona", "Real Madrid", "Sevilla", "Real Sociedad", "Betis", "Villarreal", "Granada CF", "Levante", "Ath Bilbao", "Celta Vigo", "Osasuna", "Getafe", "Valencia", "Cadiz CF", "Eibar", "Valladolid", "Alaves", "Elchi", "Huesca"]
     @State var selectedTeam = ""
@@ -26,21 +27,21 @@ struct ChangeFC: View {
                 }
                 .pickerStyle(WheelPickerStyle())
             }
-            Button(action: {
-                
-                
-                Networking.createItem(User(favoriteClub: selectedTeam, email: env.user.email), inCollection: "users/\(env.user)") {
-                    
+            Button {
+                    envv.updateUser(updatedUser: User(favoriteClub: selectedTeam, email: envv.user.email), succes: {
+                        print("meow has been updated")
+                    })
+                } label: {
+                    Text("Submit")
+                        .foregroundColor(Color("lightText"))
+                        .modifier(SignInModifier())
                 }
-            }, label: {
-                Text("Submit")
-                    .foregroundColor(Color("lightText"))
-                    .modifier(SignInModifier())
-            })
+                
         }.onAppear {
-            env.getUser()
+            envv.getUser()
         }
     }
+    
 }
 
 struct ChangeFC_Previews: PreviewProvider {

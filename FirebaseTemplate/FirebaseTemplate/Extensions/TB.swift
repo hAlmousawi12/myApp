@@ -45,16 +45,16 @@ struct TB: View {
                             Text("Standings")
                         }.foregroundColor(color2)
                     })
-//                Spacer()
-//                NavigationLink(
-//                    destination: FC(),
-//                    label: {
-//                        VStack(alignment: .center) {
-//                            Image(systemName: "star")
-//                                .font(.title2)
-//                            Text("favorite club")
-//                        }.foregroundColor(color3)
-//                    })
+                Spacer()
+                NavigationLink(
+                    destination: FC(),
+                    label: {
+                        VStack(alignment: .center) {
+                            Image(systemName: "star")
+                                .font(.title2)
+                            Text("favorite club")
+                        }.foregroundColor(color3)
+                    })
 //                Spacer()
 //                NavigationLink(
 //                    destination: Store(),

@@ -10,6 +10,7 @@ import SwiftUI
 
 struct Profile: View {
     @EnvironmentObject var env: FirebaseEnv
+    @EnvironmentObject var envv: UserEnv
     @State var isAlertPresented = false
     var body: some View {
         GeometryReader { geometry in
@@ -20,22 +21,25 @@ struct Profile: View {
                         destination: ChangeFC(),
                         label: {
                             Text("Change Favorite Team")
+                                .foregroundColor(Color("lightText"))
                         })
+                
+                    
+                    
+                    Button("Reset Password") {
+                        Networking.forgetPassword(email: envv.user.email)
+                        print(envv.user.email)
+                        isAlertPresented.toggle()
+                    }
+                    .foregroundColor(Color("lightText"))
+                    .alert(isPresented: $isAlertPresented, content: {
+                        Alert(title: Text("Email Sent!"), message: Text("We Have Sent You An Email To Reset Your Password"), dismissButton: .default(Text("Okay!")))
+                    })
                     
                     Button("Signout") {
                         env.signOut()
                     }
                     .foregroundColor(.red)
-                    
-                    Button("Reset Password") {
-                        Networking.forgetPassword(email: env.user.email)
-                        print(env.user.email)
-                        isAlertPresented.toggle()
-                    }
-                    .foregroundColor(.red)
-                    .alert(isPresented: $isAlertPresented, content: {
-                        Alert(title: Text("Email Sent!"), message: Text("We Have Sent You An Email To Reset Your Password"), dismissButton: .default(Text("Okay!")))
-                    })
                 }
                 VStack {
                     Spacer()
@@ -49,7 +53,7 @@ struct Profile: View {
             }
         }.navigationBarHidden(true)
         .onAppear {
-            env.getUser()
+            envv.getUser()
         }
     }
 }

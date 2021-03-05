@@ -19,15 +19,24 @@ struct SignIn: View {
         ZStack {
             Color("background2").edgesIgnoringSafeArea(.all)
             VStack{
+                
+                Image("Logo")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 100, height: 100)
+                
+                Text("Sign in")
+                    .font(.largeTitle)
+                    .foregroundColor(Color("lightText"))
                 Spacer()
                 
                 VStack(alignment: .leading) {
                     if isEmailTyped(text: userCredentials.email) {
-                        Text("Email")
+                        Text("E-mail")
                             .foregroundColor(Color("lightText"))
                     }
                     
-                    TextField(isEmailTyped(text: userCredentials.email) ? "" : "Email", text: $userCredentials.email)
+                    TextField(isEmailTyped(text: userCredentials.email) ? "" : "E-mail", text: $userCredentials.email)
                         .keyboardType(.emailAddress)
                         .autocapitalization(.none)
                         .disableAutocorrection(true)
@@ -39,6 +48,7 @@ struct SignIn: View {
                 }
                 .frame(height: 75)
                 .animation(.easeInOut(duration: 0.2))
+                Divider()
                 
                 VStack(alignment: .leading) {
                     if isEmailTyped(text: userCredentials.password) {
@@ -54,7 +64,7 @@ struct SignIn: View {
                 }
                 .frame(height: 75)
                 .animation(.easeInOut(duration: 0.2))
-                
+                Divider()
                 Spacer()
                 Button("Sign in"){
                     env.signIn(user: userCredentials) { (uid) in
@@ -64,20 +74,19 @@ struct SignIn: View {
                         alertShown = true
                     }
                 }
-                .frame(minWidth: 100, idealWidth: 200, maxWidth: .infinity,  alignment: .center)
-                .frame(height: 35)
-                .padding(5)
-                .background(Color("Primary"))
-                .foregroundColor(Color("lightText"))
-                .cornerRadius(5)
-                
-                NavigationLink("Don't have an account?", destination: SignUp())
-                    .foregroundColor(Color("lightText"))
+                VStack {
+                    Text("Don't have an account?")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                    
+                    NavigationLink(destination: SignUp(), label: {
+                        Text("Sign up >")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                    }
+                    .padding(.bottom)
+                }
             }
-            .alert(isPresented: $alertShown, content: {
-                Alert(title: Text("Error!"), message: Text(alertError), dismissButton: .cancel())
-            })
-            .padding()
         }
     }
     func isEmailTyped(text: String) -> Bool {
