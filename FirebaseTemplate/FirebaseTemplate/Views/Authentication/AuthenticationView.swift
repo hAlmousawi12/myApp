@@ -15,97 +15,101 @@ struct AuthenticationView: View {
 //    @State var manager = LoginManager()
     @EnvironmentObject var env: FirebaseEnv
     var body: some View {
-        VStack {
-            Image("Logo")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 100, height: 100)
-                .clipShape(Circle())
-                .padding(.top, 50)
-            Spacer()
-            NavigationLink(
-                destination: SignIn(),
-                label: {
-                    Text("Login")
-                        .foregroundColor(Color("lightText"))
-                        .modifier(SignInModifier())
-                    
-                    
-                }
-            )
-            NavigationLink(
-                destination: SignUp(),
-                label: {
-                    Text("Register")
-                        .foregroundColor(Color("lightText"))
-                        .modifier(SignInModifier())
-                    
-                }
-            )
-             Spacer()
-//                Button(action: {
-//                    GIDSignIn.sharedInstance()?.presentingViewController = UIApplication.shared.windows.first?.rootViewController
-//
-//                    GIDSignIn.sharedInstance()?.signIn()
-//
-//                    env.signedIn = true
-//                }, label: {
-//                    Text("LOG IN WITH GOOGLE")
-//                        .font(.system(size: 12.5, weight: .light))
-//
-//                        })
-//
-//                Button(action: {
-//                    manager.logIn(permissions: ["public_profile", "email"], from: nil) { result, err in
-//                        if err != nil {
-//                            print("❌❌❌❌❌\n")
-//                            print(err!.localizedDescription)
-//                        } else {
-//                        if !result!.isCancelled {
-//                            logged = true
-//
-//                            let request = GraphRequest(graphPath: "me", parameters: ["fields" : "email"])
-//
-//                            request.start { _, res, _ in
-//
-//                                guard let profileData = res as? [String : Any] else { return }
-//
-//                                email = profileData["email"] as! String
-//                                print(email)
-//                            }
-//                        }
-//                    }
-//                        if email != "" {
-//                            env.signedIn = true
-//                        }
-//                    }
-//
-//                }, label: {
-//                    Text("LOG IN WITH Facebook")
-//                        .font(.system(size: 12.5, weight: .light))
-//
-//                        })
-//
-//                Button(action: {
-//                    GIDSignIn.sharedInstance()?.presentingViewController = UIApplication.shared.windows.first?.rootViewController
-//
-//                    GIDSignIn.sharedInstance()?.signIn()
-//
-//                }, label: {
-//                    Text("LOG IN WITH Twitter")
-//                        .font(.system(size: 12.5, weight: .light))
-//
-//                        })
-//                Button(action: {
-//                    GIDSignIn.sharedInstance()?.presentingViewController = UIApplication.shared.windows.first?.rootViewController
-//
-//                    GIDSignIn.sharedInstance()?.signIn()
-//
-//                }, label: {
-//                    Text("LOG IN WITH Github")
-//                        .font(.system(size: 12.5, weight: .light))
-//
-//                        })
+        ZStack {
+            Color("background2").edgesIgnoringSafeArea(.all)
+            VStack {
+                Image("LogoNo")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 350, height: 350)
+                    .cornerRadius(15)
+                    .padding(.top, 50)
+                
+                Spacer()
+                NavigationLink(
+                    destination: SignIn(),
+                    label: {
+                        Text("Login")
+                            .foregroundColor(Color("lightText"))
+                            .modifier(SignInModifier())
+                        
+                        
+                    }
+                )
+                NavigationLink(
+                    destination: SignUp(),
+                    label: {
+                        Text("Register")
+                            .foregroundColor(Color("lightText"))
+                            .modifier(SignInModifier())
+                        
+                    }
+                )
+                Spacer()
+                //                Button(action: {
+                //                    GIDSignIn.sharedInstance()?.presentingViewController = UIApplication.shared.windows.first?.rootViewController
+                //
+                //                    GIDSignIn.sharedInstance()?.signIn()
+                //
+                //                    env.signedIn = true
+                //                }, label: {
+                //                    Text("LOG IN WITH GOOGLE")
+                //                        .font(.system(size: 12.5, weight: .light))
+                //
+                //                        })
+                //
+                //                Button(action: {
+                //                    manager.logIn(permissions: ["public_profile", "email"], from: nil) { result, err in
+                //                        if err != nil {
+                //                            print("❌❌❌❌❌\n")
+                //                            print(err!.localizedDescription)
+                //                        } else {
+                //                        if !result!.isCancelled {
+                //                            logged = true
+                //
+                //                            let request = GraphRequest(graphPath: "me", parameters: ["fields" : "email"])
+                //
+                //                            request.start { _, res, _ in
+                //
+                //                                guard let profileData = res as? [String : Any] else { return }
+                //
+                //                                email = profileData["email"] as! String
+                //                                print(email)
+                //                            }
+                //                        }
+                //                    }
+                //                        if email != "" {
+                //                            env.signedIn = true
+                //                        }
+                //                    }
+                //
+                //                }, label: {
+                //                    Text("LOG IN WITH Facebook")
+                //                        .font(.system(size: 12.5, weight: .light))
+                //
+                //                        })
+                //
+                //                Button(action: {
+                //                    GIDSignIn.sharedInstance()?.presentingViewController = UIApplication.shared.windows.first?.rootViewController
+                //
+                //                    GIDSignIn.sharedInstance()?.signIn()
+                //
+                //                }, label: {
+                //                    Text("LOG IN WITH Twitter")
+                //                        .font(.system(size: 12.5, weight: .light))
+                //
+                //                        })
+                //                Button(action: {
+                //                    GIDSignIn.sharedInstance()?.presentingViewController = UIApplication.shared.windows.first?.rootViewController
+                //
+                //                    GIDSignIn.sharedInstance()?.signIn()
+                //
+                //                }, label: {
+                //                    Text("LOG IN WITH Github")
+                //                        .font(.system(size: 12.5, weight: .light))
+                //
+                //                        })
+            }
         }
     }
 }

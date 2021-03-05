@@ -12,26 +12,23 @@ import FirebaseAuth
 class UserEnv: ObservableObject{
     @Published var user = User()
     @Published var userFC: String = ""
-    var uid = Networking.getUserId()
+    var uid = Networking.getUserId() ?? ""
     let collectionName = "users"
     func getUser() {
-        let userId = Networking.getUserId()
-        
-        Networking.getSingleDocument("users/\(userId!)") { (user: User) in
+        Networking.getSingleDocument("users/\(uid)") { (user: User) in
             self.user = user
-            
         }
     }
     
     func getUserFC() {
-        Networking.getSingleDocument("users/\(uid!)") { (FC: User) in
+        Networking.getSingleDocument("users/\(uid)") { (FC: User) in
             self.userFC = FC.favoriteClub
             
         }
     }
     
     func updateUser(updatedUser: User, succes: @escaping ()->Void) {
-        Networking.createItem(updatedUser, inCollection: collectionName, withDocumentId: uid!) {
+        Networking.createItem(updatedUser, inCollection: collectionName, withDocumentId: uid) {
             succes()
         }
     }

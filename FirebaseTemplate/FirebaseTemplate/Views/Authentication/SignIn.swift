@@ -20,10 +20,11 @@ struct SignIn: View {
             Color("background2").edgesIgnoringSafeArea(.all)
             VStack{
                 
-                Image("Logo")
+                Image("LogoNo")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 100, height: 100)
+                    .clipShape(Circle())
                 
                 Text("Sign in")
                     .font(.largeTitle)
@@ -40,11 +41,8 @@ struct SignIn: View {
                         .keyboardType(.emailAddress)
                         .autocapitalization(.none)
                         .disableAutocorrection(true)
-                        .frame(height: 35)
                         .padding(5)
-                        .background(Color("Primary"))
                         .foregroundColor(Color("lightText"))
-                        .cornerRadius(5)
                 }
                 .frame(height: 75)
                 .animation(.easeInOut(duration: 0.2))
@@ -58,9 +56,7 @@ struct SignIn: View {
                     SecureField(isEmailTyped(text: userCredentials.password) ? "" : "password", text: $userCredentials.password)
                         .frame(height: 35)
                         .padding(5)
-                        .background(Color("Primary"))
                         .foregroundColor(Color("lightText"))
-                        .cornerRadius(5)
                 }
                 .frame(height: 75)
                 .animation(.easeInOut(duration: 0.2))
@@ -74,18 +70,23 @@ struct SignIn: View {
                         alertShown = true
                     }
                 }
-                VStack {
+                .foregroundColor(Color("lightText"))
+                .modifier(SignInModifier())
+                VStack(alignment: .leading) {
                     Text("Don't have an account?")
                         .font(.caption)
                         .foregroundColor(.secondary)
                     
-                    NavigationLink(destination: SignUp(), label: {
-                        Text("Sign up >")
-                            .font(.caption)
-                            .foregroundColor(.secondary)
-                    }
-                    .padding(.bottom)
-                }
+                    NavigationLink(
+                        destination: SignUp(),
+                        label: {
+                            Text("Sign up  >")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        })
+
+                    
+                }.padding(.bottom)
             }
         }
     }
