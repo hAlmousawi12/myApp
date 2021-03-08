@@ -27,9 +27,12 @@ class UserEnv: ObservableObject{
         }
     }
     
-    func updateUser(updatedUser: User, succes: @escaping ()->Void) {
+    func updateUser(updatedUser: User, succes: @escaping ()->Void, fail: @escaping (Error?)->Void) {
         Networking.createItem(updatedUser, inCollection: collectionName, withDocumentId: uid) {
             succes()
+        } fail: { err in
+            fail(err)
         }
+
     }
 }

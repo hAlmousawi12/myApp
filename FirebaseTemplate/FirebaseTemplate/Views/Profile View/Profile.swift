@@ -49,6 +49,13 @@ struct Profile: View {
                         .cornerRadius(32)
                         .padding(.horizontal, 10)
                         .shadow(color: Color("Color").opacity(0.15), radius: 5, x: 0, y: 5)
+                    
+//                    VStack {
+//                        // ads will be here later
+//                        Text("")
+//                    }
+//                    .frame(width: geometry.size.width, height: 50)
+//                    .background(Color.gray)
                 }
             }
         }.navigationBarHidden(true)

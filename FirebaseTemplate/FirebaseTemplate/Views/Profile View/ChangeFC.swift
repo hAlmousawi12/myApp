@@ -14,6 +14,9 @@ struct ChangeFC: View {
     @EnvironmentObject var item: ItemsEnv
     var teams = ["Atl. Madrid", "Barcelona", "Real Madrid", "Sevilla", "Real Sociedad", "Betis", "Villarreal", "Granada CF", "Levante", "Ath Bilbao", "Celta Vigo", "Osasuna", "Getafe", "Valencia", "Cadiz CF", "Eibar", "Valladolid", "Alaves", "Elchi", "Huesca"]
     @State var selectedTeam = ""
+    @State var isAlertPresented = false
+    @State var alertContent = ""
+    @State var alertTitle = ""
     var body: some View {
         VStack {
             Text("Select Your Favorite Team")
@@ -29,15 +32,24 @@ struct ChangeFC: View {
             }
             Button {
                     envv.updateUser(updatedUser: User(favoriteClub: selectedTeam, email: envv.user.email), succes: {
-                        print("meow has been updated")
-                    })
+                        isAlertPresented = true
+                        alertTitle = "Succeed!"
+                        alertContent = "Your favorite team has been changed successfully"
+                    }) { err in
+                        isAlertPresented = true
+                        alertTitle = "Error!"
+                        alertContent = err?.localizedDescription ?? ""
+                    }
                 } label: {
                     Text("Submit")
                         .foregroundColor(Color("lightText"))
                         .modifier(SignInModifier())
-                }
+                }.alert(isPresented: $isAlertPresented, content: {
+                    Alert(title: Text(alertTitle), message: Text(alertContent), dismissButton: .default(Text("Okay!")))
+                })
                 
-        }.onAppear {
+        }
+        .onAppear {
             envv.getUser()
         }
     }

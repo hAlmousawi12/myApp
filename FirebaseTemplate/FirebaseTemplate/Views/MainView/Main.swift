@@ -33,6 +33,7 @@ struct Main: View {
                     }
                 }
                 TBandTGL(toggled: $toggled)
+                
             }
         }.navigationBarHidden(true)
         .onAppear { loadData() }

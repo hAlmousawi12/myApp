@@ -22,18 +22,18 @@ struct TB: View {
             HStack(alignment: .center) {
                 
                 Group {
-                Spacer()
-                NavigationLink(
-                    destination: Main(),
-                    label: {
-                        VStack(alignment: .center) {
-                            Image(systemName: "calendar")
-                                .font(.title2)
-                            Text("Calendar")
-                        }
-                        .foregroundColor(color1)
-                        
-                    })
+                    Spacer()
+                    NavigationLink(
+                        destination: Main(),
+                        label: {
+                            VStack(alignment: .center) {
+                                Image(systemName: "calendar")
+                                    .font(.title2)
+                                Text("Calendar")
+                            }
+                            .foregroundColor(color1)
+                            
+                        })
                 }
                 Spacer()
                 NavigationLink(
@@ -55,16 +55,16 @@ struct TB: View {
                             Text("favorite club")
                         }.foregroundColor(color3)
                     })
-//                Spacer()
-//                NavigationLink(
-//                    destination: Store(),
-//                    label: {
-//                        VStack(alignment: .center) {
-//                            Image(systemName: "cart")
-//                                .font(.title2)
-//                            Text("Store")
-//                        }.foregroundColor(color4)
-//                    })
+                //                Spacer()
+                //                NavigationLink(
+                //                    destination: Store(),
+                //                    label: {
+                //                        VStack(alignment: .center) {
+                //                            Image(systemName: "cart")
+                //                                .font(.title2)
+                //                            Text("Store")
+                //                        }.foregroundColor(color4)
+                //                    })
                 Spacer()
                 NavigationLink(
                     destination: Profile(),
@@ -75,10 +75,11 @@ struct TB: View {
                             Text("Profile")
                         }
                         .foregroundColor(color5)
-
+                        
                     })
                 Spacer()
             }.font(.footnote)
         }
     }
 }
+   

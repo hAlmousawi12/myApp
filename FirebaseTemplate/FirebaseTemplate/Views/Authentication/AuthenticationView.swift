@@ -16,24 +16,31 @@ struct AuthenticationView: View {
     @EnvironmentObject var env: FirebaseEnv
     var body: some View {
         ZStack {
-            Color("background2").edgesIgnoringSafeArea(.all)
+            Image("BG")
+                .resizable()
+                .scaledToFill()
+                .edgesIgnoringSafeArea(.all)
             VStack {
                 Image("LogoNo")
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 350, height: 350)
+                    .frame(width: 250, height: 250)
                     .cornerRadius(15)
                     .padding(.top, 50)
                 
                 Spacer()
+                VStack(spacing: 20) {
                 NavigationLink(
                     destination: SignIn(),
                     label: {
                         Text("Login")
                             .foregroundColor(Color("lightText"))
-                            .modifier(SignInModifier())
-                        
-                        
+                            .padding()
+                            .frame(minWidth: 100, idealWidth: 200, maxWidth: .infinity,  alignment: .center)
+                            .background(Color("Primary"))
+                            .cornerRadius(10)
+                            .padding(.horizontal)
+                            .shadow(color: Color("Primary"), radius: 10, x: 0, y: 10)
                     }
                 )
                 NavigationLink(
@@ -41,10 +48,16 @@ struct AuthenticationView: View {
                     label: {
                         Text("Register")
                             .foregroundColor(Color("lightText"))
-                            .modifier(SignInModifier())
+                            .padding()
+                            .frame(minWidth: 100, idealWidth: 200, maxWidth: .infinity,  alignment: .center)
+                            .background(Color("Primary3ks"))
+                            .cornerRadius(10)
+                            .padding(.horizontal)
+                            .shadow(color: Color("Primary3ks"), radius: 10, x: 0, y: 10)
                         
                     }
                 )
+                }
                 Spacer()
                 //                Button(action: {
                 //                    GIDSignIn.sharedInstance()?.presentingViewController = UIApplication.shared.windows.first?.rootViewController

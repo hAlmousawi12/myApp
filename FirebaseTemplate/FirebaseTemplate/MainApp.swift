@@ -1,5 +1,6 @@
 import SwiftUI
 import Firebase
+//import GoogleMobileAds
 //import GoogleSignIn
 //import FBSDKCoreKit
 @main
@@ -7,6 +8,7 @@ struct MainApp: App {
 //    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     init() {
         FirebaseApp.configure()
+//        GADMobileAds.sharedInstance().start(completionHandler: nil)
     }
     var body: some Scene {
         WindowGroup {

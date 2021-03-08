@@ -16,82 +16,142 @@ struct SignIn: View {
     @State var alertError: String = ""
     
     var body: some View {
-        ZStack {
-            Color("background2").edgesIgnoringSafeArea(.all)
-            VStack{
-                
-                Image("LogoNo")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 100, height: 100)
-                    .clipShape(Circle())
-                
-                Text("Sign in")
-                    .font(.largeTitle)
-                    .foregroundColor(Color("lightText"))
-                Spacer()
-                
-                VStack(alignment: .leading) {
-                    if isEmailTyped(text: userCredentials.email) {
-                        Text("E-mail")
+        GeometryReader { geometry in
+            ZStack {
+                Image("BG")
+                    .frame(width: geometry.size.width, height: geometry.size.height)
+                    .padding(.top, 87)
+                    .edgesIgnoringSafeArea(.all)
+                    
+                VStack {
+                    Group {
+                        Image("LogoNo")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 100, height: 100)
+                        
+                        Text("Sign in")
                             .foregroundColor(Color("lightText"))
+                            .font(.largeTitle)
+                            .bold()
                     }
                     
-                    TextField(isEmailTyped(text: userCredentials.email) ? "" : "E-mail", text: $userCredentials.email)
-                        .keyboardType(.emailAddress)
-                        .autocapitalization(.none)
-                        .disableAutocorrection(true)
-                        .padding(5)
-                        .foregroundColor(Color("lightText"))
-                }
-                .frame(height: 75)
-                .animation(.easeInOut(duration: 0.2))
-                Divider()
-                
-                VStack(alignment: .leading) {
-                    if isEmailTyped(text: userCredentials.password) {
-                        Text("Password")
-                            .foregroundColor(Color("lightText"))
-                    }
-                    SecureField(isEmailTyped(text: userCredentials.password) ? "" : "password", text: $userCredentials.password)
-                        .frame(height: 35)
-                        .padding(5)
-                        .foregroundColor(Color("lightText"))
-                }
-                .frame(height: 75)
-                .animation(.easeInOut(duration: 0.2))
-                Divider()
-                Spacer()
-                Button("Sign in"){
-                    env.signIn(user: userCredentials) { (uid) in
-                        print("Signed in!")
-                    } fail: { (error) in
-                        alertError = error.debugDescription
-                        alertShown = true
-                    }
-                }
-                .foregroundColor(Color("lightText"))
-                .modifier(SignInModifier())
-                VStack(alignment: .leading) {
-                    Text("Don't have an account?")
-                        .font(.caption)
-                        .foregroundColor(.secondary)
+                    Spacer()
                     
-                    NavigationLink(
-                        destination: SignUp(),
-                        label: {
-                            Text("Sign up  >")
-                                .font(.caption)
-                                .foregroundColor(.secondary)
-                        })
+                    VStack(alignment: .leading, spacing: 40) {
+                        VStack(alignment: .leading) {
+                            if !userCredentials.email.isEmpty {
+                            Text("E-Mail")
+                                .foregroundColor(Color("lightText"))
+                                .font(.system(size: 15.5, weight: .semibold))
+                            }
+                            ZStack {
+                                if userCredentials.email.isEmpty {
+                                    HStack {
+                                        Text("E-Mail")
+                                            .foregroundColor(Color("Placeholder"))
+                                        Spacer()
+                                    }
+                                }
+                                VStack {
+                                    TextField("", text: $userCredentials.email)
+                                        .disableAutocorrection(true)
+                                        .keyboardType(.emailAddress)
+                                        .foregroundColor(Color("lightText"))
+                                    Divider()
+                                        .background(Color("Placeholder"))
+                                }
+                                
+                            }
+                        }
+                        VStack(alignment: .leading) {
+                            if !userCredentials.password.isEmpty {
+                            Text("Password")
+                                .foregroundColor(Color("lightText"))
+                                .font(.system(size: 15.5, weight: .semibold))
+                            }
+                            ZStack {
+                                if userCredentials.password.isEmpty {
+                                    HStack {
+                                        Text("Password")
+                                            .foregroundColor(Color("Placeholder"))
+                                        Spacer()
+                                    }
+                                }
+                                VStack {
+                                    SecureField("", text: $userCredentials.password)
+                                        .foregroundColor(Color("lightText"))
+                                    Divider()
+                                        .background(Color("Placeholder"))
+                                    
+                                }
+                            }
+                            VStack {
+                                HStack {
+                                    Text("Forgot your password? ")
+                                        .foregroundColor(Color("Placeholder"))
+                                    Button(action: {
+                                        env.forgotPass(email: userCredentials.email) {
+                                            alertShown = true
+                                            alertError = "Email has been sent to your email"
+                                        } fail: { err in
+                                            alertShown = true
+                                            alertError = err?.localizedDescription ?? ""
+                                        }
+                                        
+                                    }, label: {
+                                        Text("Click here")
+                                            .foregroundColor(Color("lightText"))
+                                    })
+                                }
+                            }.padding(.top, 20)
+                        }
+                    }
+                    .frame(width: geometry.size.width - 50)
+                    .animation(.easeInOut(duration: 0.2))
+                    
+                    Spacer()
+                    
+                    Button(action: {
+                        env.signIn(user: userCredentials) { (uid) in
 
+                            print("Signed in!")
+                        } fail: { (error) in
+                            alertError = error.debugDescription
+                            alertShown = true
+                        }
+                    }, label: {
+                        Text("Sign in")
+                            .font(.title2)
+                            .foregroundColor(Color("lightText"))
+                    })
+                    .frame(width: geometry.size.width - 120, height: 60)
+                    .background(Color("Primary"))
+                    .cornerRadius(10)
+                    .shadow(color: Color("Primary"), radius: 10, x: 0, y: 10)
                     
-                }.padding(.bottom)
+                    Spacer()
+                    HStack {
+                        VStack(alignment: .leading, spacing: 10) {
+                            Text("Don't have an account?")
+                            NavigationLink(
+                                destination: SignUp(),
+                                label: {
+                                    Text("Sign up  >")
+                                })
+                        }
+                        Spacer()
+                    }
+                    .font(.system(size: 12.5))
+                    .foregroundColor(Color("Placeholder"))
+                    .padding(.leading, 30)
+                    Spacer()
+                    Spacer()
+                }
             }
-        }
-    }
-    func isEmailTyped(text: String) -> Bool {
-        text != ""
+        }.alert(isPresented: $alertShown, content: {
+            Alert(title: Text("Error!"), message: Text(alertError), dismissButton: .cancel())
+        })
     }
 }
 

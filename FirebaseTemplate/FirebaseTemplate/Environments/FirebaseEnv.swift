@@ -31,6 +31,17 @@ class FirebaseEnv: ObservableObject{
         }
     }
     
+    func forgotPass(email: String, success: @escaping () -> Void, fail: @escaping (Error?) -> Void) {
+        Auth.auth().sendPasswordReset(withEmail: email) {error in
+            
+            if error == nil {
+                success()
+            } else {
+                fail(error)
+            }
+        }
+    }
+    
     func getUser() {
         let userId = Networking.getUserId()
         

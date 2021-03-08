@@ -15,10 +15,14 @@ struct SignUp: View {
     var teams = ["Atl. Madrid", "Barcelona", "Real Madrid", "Sevilla", "Real Sociedad", "Betis", "Villarreal", "Granada CF", "Levante", "Ath Bilbao", "Celta Vigo", "Osasuna", "Getafe", "Valencia", "Cadiz CF", "Eibar", "Valladolid", "Alaves", "Elchi", "Huesca"]
     @State var selectedTeam = ""
     var body: some View {
-        ZStack {
-            Color("background2").edgesIgnoringSafeArea(.all)
-            VStack {
-                Group {
+        GeometryReader { geometry in
+            ZStack {
+                Image("BG")
+                    .frame(width: geometry.size.width, height: geometry.size.height)
+                    .padding(.top, 87)
+                    .edgesIgnoringSafeArea(.all)
+                VStack {
+                    Group {
                     Image("LogoNo")
                         .resizable()
                         .scaledToFit()
@@ -26,115 +30,130 @@ struct SignUp: View {
                     
                     Text("Sign up")
                         .font(.largeTitle)
+                        .bold()
                         .foregroundColor(Color("lightText"))
+                    }
                     
-                }
-                Spacer()
-                VStack(spacing: 10) {
-                    VStack(alignment: .leading) {
-                        HStack {
-                            Picker("select your favorite club", selection: $selectedTeam) {
-                                ForEach(teams, id: \.self) {
-                                    Text($0)
+                    VStack(alignment: .leading, spacing: 40) {
+                        
+                        VStack(alignment: .leading) {
+                            if !user.email.isEmpty {
+                                Text("E-Mail")
+                                    .foregroundColor(Color("lightText"))
+                                    .font(.system(size: 15.5, weight: .semibold))
+                            }
+                            ZStack {
+                                if user.email.isEmpty {
+                                    HStack {
+                                        Text("E-Mail")
+                                            .foregroundColor(Color("Placeholder"))
+                                        Spacer()
+                                    }
+                                }
+                                VStack {
+                                    TextField("", text: $user.email)
+                                        .disableAutocorrection(true)
+                                        .keyboardType(.emailAddress)
+                                        .foregroundColor(Color("lightText"))
+                                    Divider()
+                                        .background(Color("Placeholder"))
                                 }
                             }
-                            .foregroundColor(Color("lightText"))
-                            .pickerStyle(MenuPickerStyle())
-                            .padding(.leading, 5)
-                            Spacer()
                         }
                         
-                        HStack {
-                            Text("Your favorite club is:")
-                                .foregroundColor(Color("lightText"))
-                            Text(selectedTeam)
-                                .foregroundColor(Color("lightText"))
-                                .bold()
-                        }.padding(.leading, 5)
-                        Divider()
-                            .background(Color("Placeholder"))
-                    }
-                    
-                    VStack(alignment: .leading) {
-                        if isEmailTyped(text: user.email) {
-                            Text("Email")
-                                .foregroundColor(Color("lightText"))
+                        VStack(alignment: .leading) {
+                            if selectedTeam != "" {
+                                HStack {
+                                    
+                                    Text("Your favorite club is:")
+                                        .foregroundColor(Color("lightText"))
+                                    
+                                    Text(selectedTeam)
+                                        .foregroundColor(Color("lightText"))
+                                        .bold()
+                                }
+                            }
+                            HStack {
+                                Picker("Select your favorite club", selection: $selectedTeam) {
+                                    ForEach(teams, id: \.self) {
+                                        Text($0)
+                                    }
+                                }
+                                .foregroundColor(Color("Placeholder"))
+                                .pickerStyle(MenuPickerStyle())
+                                
+                                Spacer()
+                            }
+                            Divider()
+                                .background(Color("Placeholder"))
                         }
                         
-                        ZStack {
-                            HStack {
-                                Text(isEmailTyped(text: user.email) ? "" : "Email")
-                                    .foregroundColor(Color("Placeholder"))
-                                Spacer()
+                        VStack(alignment: .leading) {
+                            if !password.isEmpty {
+                                Text("Password")
+                                    .foregroundColor(Color("lightText"))
+                                    .font(.system(size: 15.5, weight: .semibold))
                             }
-                            TextField("", text: $user.email)
-                                .keyboardType(.emailAddress)
-                                .autocapitalization(.none)
-                                .disableAutocorrection(true)
-                                .frame(height: 35)
-                                .padding(5)
-                                .foregroundColor(Color("lightText"))
-                        }
-                        Divider()
-                            .background(Color("Placeholder"))
-                    }
-                    .frame(height: 75)
-                    .animation(.easeInOut(duration: 0.2))
-                    
-                    
-                    
-                    VStack(alignment: .leading) {
-                        if isEmailTyped(text: password) {
-                            Text("Password")
-                                .foregroundColor(Color("lightText"))
-                        }
-                        ZStack {
-                            HStack {
-                                Text(isEmailTyped(text: password) ? "" : "password")
-                                    .foregroundColor(Color("Placeholder"))
-                                Spacer()
+                            ZStack {
+                                if password.isEmpty {
+                                    HStack {
+                                        Text("Password")
+                                            .foregroundColor(Color("Placeholder"))
+                                        Spacer()
+                                    }
+                                }
+                                VStack {
+                                    SecureField("", text: $password)
+                                        .foregroundColor(Color("lightText"))
+                                    Divider()
+                                        .background(Color("Placeholder"))
+                                }
                             }
-                            SecureField("", text: $password)
-                                .frame(height: 35)
-                                .padding(5)
-                                .foregroundColor(Color("lightText"))
                         }
-                        Divider()
-                            .background(Color("Placeholder"))
+                        
                     }
-                    .frame(height: 75)
+                    .frame(width: geometry.size.width - 50)
                     .animation(.easeInOut(duration: 0.2))
                     
                     Spacer()
                     
-                    Button("Sign up"){
-                        user.favoriteClub = selectedTeam
-                        env.signUp(user: user, password: password)
-                    }
-                    .foregroundColor(Color("lightText"))
-                    .modifier(SignInModifier())
-                    
                     VStack {
-                        Text("Already have an account?")
-                            .font(.caption)
-                            .foregroundColor(Color("Placeholder"))
-                        
-                        NavigationLink(
-                            destination: SignIn(),
-                            label: {
-                                Text("Sign in  >")
-                                    .font(.caption)
-                                    .foregroundColor(Color("Placeholder"))
-                            })
-                        
-                        
-                    }.padding(.bottom)
+                        Button(action: {
+                            user.favoriteClub = selectedTeam
+                            env.signUp(user: user, password: password)
+                        }, label : {
+                            Text("Sign up")
+                                .font(.title2)
+                                .foregroundColor(Color("lightText"))
+                        })
+                        .frame(width: geometry.size.width - 120, height: 60)
+                        .background(Color("Primary"))
+                        .cornerRadius(10)
+                        .shadow(color: Color("Primary"), radius: 10, x: 0, y: 10)
+                    }
+                    
+                    Spacer()
+                    
+                    HStack  {
+                        VStack(alignment: .leading, spacing: 10) {
+                            Text("Already have an account?")
+                            NavigationLink(
+                                destination: SignIn(),
+                                label: {
+                                    Text("Sign in  >")
+                                })
+                        }
+                        Spacer()
+                    }
+                    .foregroundColor(Color("Placeholder"))
+                    .padding(.leading, 30)
+                    .font(.system(size: 12.5))
+                    
+                    Spacer()
+                    Spacer()
                 }
             }
         }
-    }
-    func isEmailTyped(text: String) -> Bool {
-        text != ""
     }
 }
 

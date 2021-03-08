@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-
 struct TBandTGL: View {
     @State var toggleSize: CGFloat = 0
     @State var toggleOffset: CGFloat = 0
@@ -18,7 +17,7 @@ struct TBandTGL: View {
             VStack {
                 HStack {
                     Spacer()
-                    Text(toggled ? "Live" : "")
+                    Text(toggled ? "Live" : "Not Live")
                         
                     MyToggle(buttonSize: $toggleSize, buttonOffset: $toggleOffset, buttonColor: $toggleColor, toggled: $toggled)
                         .shadow(color: Color.black.opacity(0.3), radius: 2.5, x: 0, y: 2.5)
@@ -30,6 +29,12 @@ struct TBandTGL: View {
                     .padding(.horizontal, 10)
                     .shadow(color: Color("Color").opacity(0.15), radius: 5, x: 0, y: 5)
                 
+//                VStack {
+//                    // ads will be here later
+//                    Text("")
+//                }
+//                .frame(width: geometry.size.width, height: 50)
+//                .background(Color.gray)
                 
             }
         }
